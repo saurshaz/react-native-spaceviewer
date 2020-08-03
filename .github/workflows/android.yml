@@ -25,7 +25,7 @@ jobs:
     - name: Download Android Emulator Image
       run: |
         echo y | sudo $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-28;google_apis;x86_64" > /dev/null
-        $ANDROID_HOME/tools/bin/avdmanager -s create avd -n emu -k "system-images;android-28;google_apis;x86_64" -b "x86_64" -c 1G -d 7 -f
+        $ANDROID_HOME/tools/bin/avdmanager -s create avd -n Pixel_2_API_28 -k "system-images;android-28;google_apis;x86_64" -b "x86_64" -c 1G -d 7 -f
 
     - name: Install node_modules
       run: |
@@ -54,7 +54,7 @@ jobs:
       timeout-minutes: 10
       run: |
         export PATH=$PATH:$ANDROID_HOME/platform-tools
-        $ANDROID_HOME/emulator/emulator @emu -no-boot-anim &
+        $ANDROID_HOME/emulator/emulator @Pixel_2_API_28 -no-boot-anim &
         adb wait-for-device; adb shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'; adb shell wm dismiss-keyguard
         mkdir -p ./artifacts
         yarn workspace mobile test-detox-android-release --record-videos all
