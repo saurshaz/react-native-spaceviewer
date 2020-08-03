@@ -38,6 +38,6 @@ jobs:
       run: |
         echo "$KEYSTORE" | xxd -r -p - > app/release.keystore
         echo $AT > ~/play_api_key_rn_spaceviewer.json
-        fastlane action gradle
+        fastlane android internal
         rm -f ~/play_api_key_rn_spaceviewer.json
         rm -f app/release.keystore
