@@ -27,6 +27,13 @@ Should be as easy as:
       yarn run-android
       yarn run-ios
 
+## tests
+- For Linting, run `yarn lint`
+- For Unit tests, run `yarn test`
+- For E2E tests, run `yarn e2e`
+  - Setup e2e testing and `detox` (MAC only for now)
+  - 
+
 ## Credits / Special Thanks
 
 * All the data that is publicly available via the [LaunchLibrary.net](https://launchlibrary.net) API.
